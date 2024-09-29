@@ -1,0 +1,30 @@
+import java.util.*;
+public class FitnessTest {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int[][] oxygen = new int[3][3];
+        double[] avgOxygen = new double[3];
+        boolean validInput = true;
+for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                int oxyLevel = scan.nextInt();
+                if (oxyLevel < 1 || oxyLevel > 100){
+                    validInput = false;
+                }
+                oxygen[i][j] = oxyLevel;
+            }}
+if (!validInput) {
+            System.out.println("INVALID INPUT");
+            return;
+        }
+for (int i = 0; i<3;i++) {
+            avgOxygen[i] = Math.round((oxygen[i][0]+oxygen[i][1]+oxygen[i][2])/3.0);
+        }
+double maxAvg = Arrays.stream(avgOxygen).max().getAsDouble();
+if (maxAvg < 70) {
+            System.out.println("INVALID INPUT");
+        } else {
+            for (int i = 0; i < 3; i++) {
+                if (avgOxygen[i] == maxAvg) {
+                    System.out.println("Trainee Number : " + (i + 1));
+                }}}}}
